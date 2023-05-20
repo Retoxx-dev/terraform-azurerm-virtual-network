@@ -55,6 +55,10 @@ resource "azurerm_subnet" "this" {
   service_endpoint_policy_ids = each.value.service_endpoint_policy_ids
 }
 
+#################################################################
+# NETWORK SECURITY GROUPS
+#################################################################
+
 resource "azurerm_network_security_group" "this" {
   for_each = { for sg in var.security_groups : sg.name => sg }
 
@@ -87,6 +91,10 @@ resource "azurerm_network_security_group" "this" {
 
   tags = each.value.tags
 }
+
+#################################################################
+# NETWORK SECURITY GROUPS - ASSOCIATIONS
+#################################################################
 
 resource "azurerm_subnet_network_security_group_association" "this" {
   for_each                  = { for sg in var.security_groups : sg.name => sg if sg.assign_to != null }
