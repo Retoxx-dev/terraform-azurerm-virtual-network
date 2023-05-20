@@ -28,7 +28,7 @@ module "virtual_network" {
 
 ### Virtual Network with subnets and security groups
 
-This module can also create security groups and assign them to subnets. To do so, specify `assign_to` variable with the name of the subnet to which the security group should be assigned.
+This module can also create security groups and assign them to subnets.By default they're not being attached so to do that, specify `assign_to` variable with the name of the subnet to which the security group should be assigned.
 
 ```hcl
 module "virtual_network" {
