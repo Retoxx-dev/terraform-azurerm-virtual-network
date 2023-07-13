@@ -113,5 +113,6 @@ variable "security_groups" {
     }))
     tags = optional(map(string), null)
   }))
-  description = "(Required) A list of security groups to create."
+  default     = []
+  description = "(Optional) A list of security groups to create."
 }
