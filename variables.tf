@@ -73,11 +73,11 @@ variable "subnets" {
   type = list(object({
     name             = string
     address_prefixes = list(string)
-    subnet_delegations = optional(map(object({
+    subnet_delegations = optional(list(object({
       name            = string
       service_name    = string
       service_actions = optional(list(string), null)
-    })), {})
+    })), null)
     private_endpoint_network_policies_enabled     = optional(bool, true)
     private_link_service_network_policies_enabled = optional(bool, true)
     service_endpoints                             = optional(list(string), null)
