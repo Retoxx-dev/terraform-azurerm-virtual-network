@@ -78,7 +78,7 @@ variable "subnets" {
       service_name    = string
       service_actions = optional(list(string), null)
     })), null)
-    private_endpoint_network_policies_enabled     = optional(bool, true)
+    private_endpoint_network_policies             = optional(string, "Disabled")
     private_link_service_network_policies_enabled = optional(bool, true)
     service_endpoints                             = optional(list(string), null)
     service_endpoint_policy_ids                   = optional(list(string), null)
